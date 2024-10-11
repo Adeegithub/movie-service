@@ -11,8 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class MovieDto {
-    int id;
-    String name;
-    String genre;
-    int year;
+    private int id;
+    private String name;
+    private String genre;
+    private int year;
 }
