@@ -12,4 +12,13 @@ public class MovieMapper {
                 movie.getYear()
         );
     }
+
+    public static Movie mapToMovie(MovieDto movieDto){
+        return new Movie(
+                movieDto.getId(),
+                movieDto.getName(),
+                movieDto.getGenre(),
+                movieDto.getYear()
+        );
+    }
 }
