@@ -72,4 +72,12 @@ public class MovieServiceImpl implements MovieService {
 
         movieRepository.deleteById(id);
     }
+
+    @Override
+    public List<MovieDto> getRomanceMovies() {
+        List<Movie> romanceMovies = movieRepository.findAll();
+        return romanceMovies.stream().filter(movie -> movie.getGenre().equals("Romance")).map(movie -> MovieMapper.mapToMovieDto(movie))
+                .collect(Collectors.toList());
+
+    }
 }

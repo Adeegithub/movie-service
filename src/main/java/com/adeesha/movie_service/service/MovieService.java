@@ -13,4 +13,6 @@ public interface MovieService {
     MovieDto updateMovie(int id, MovieDto updatedMovie);
 
     void deleteMovie(int id);
+
+    List<MovieDto> getRomanceMovies();
 }

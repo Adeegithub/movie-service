@@ -54,4 +54,10 @@ public class MovieController {
         return ResponseEntity.ok("Movie Deleted with the Id: " + movieId);
     }
 
+    @GetMapping("/romance")
+    public ResponseEntity<List<MovieDto>> getRomanceMovies(){
+        List<MovieDto> romanceMovies = movieService.getRomanceMovies();
+        return ResponseEntity.ok(romanceMovies);
+    }
+
 }
