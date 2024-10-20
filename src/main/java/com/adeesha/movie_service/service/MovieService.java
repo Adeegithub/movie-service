@@ -11,4 +11,6 @@ public interface MovieService {
     List<MovieDto> getAllMovies();
 
     MovieDto updateMovie(int id, MovieDto updatedMovie);
+
+    void deleteMovie(int id);
 }

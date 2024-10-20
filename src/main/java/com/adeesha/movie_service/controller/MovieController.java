@@ -47,4 +47,11 @@ public class MovieController {
         return ResponseEntity.ok(movieDto);
     }
 
+    //Build the Delete Movie Rest API
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteMovie(@PathVariable("id") int movieId){
+        movieService.deleteMovie(movieId);
+        return ResponseEntity.ok("Movie Deleted with the Id: " + movieId);
+    }
+
 }

@@ -63,4 +63,13 @@ public class MovieServiceImpl implements MovieService {
          return MovieMapper.mapToMovieDto(updatedMovieObject);
 
     }
+
+    @Override
+    public void deleteMovie(int id) {
+        Movie movie = movieRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Movie does not exist with the id: " + id));
+
+        movieRepository.deleteById(id);
+    }
 }
