@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/movies")
@@ -29,4 +31,12 @@ public class MovieController {
         MovieDto searchedMovie = movieService.getMovieById(movieId);
         return ResponseEntity.ok(searchedMovie);
     }
+
+    //Build getAllMovies Rest API
+    @GetMapping
+    public ResponseEntity<List<MovieDto>> getAllMovies(){
+        List<MovieDto> allMovies = movieService.getAllMovies();
+        return ResponseEntity.ok(allMovies);
+    }
+
 }

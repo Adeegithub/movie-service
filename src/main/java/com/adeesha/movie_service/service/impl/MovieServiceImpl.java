@@ -9,6 +9,9 @@ import com.adeesha.movie_service.service.MovieService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class MovieServiceImpl implements MovieService {
@@ -36,5 +39,12 @@ public class MovieServiceImpl implements MovieService {
 
         //Convert movie JPA entity to MovieDTO and return the DTO
         return MovieMapper.mapToMovieDto(movie);
+    }
+
+    @Override
+    public List<MovieDto> getAllMovies() {
+        List<Movie> allMovies = movieRepository.findAll();
+        return allMovies.stream().map((movie) -> MovieMapper.mapToMovieDto(movie))
+                .collect(Collectors.toList());
     }
 }
