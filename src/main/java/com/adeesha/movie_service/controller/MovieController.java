@@ -5,10 +5,7 @@ import com.adeesha.movie_service.service.MovieService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
@@ -24,5 +21,12 @@ public class MovieController {
     public ResponseEntity<MovieDto> addMovie(@RequestBody MovieDto movieDto){
         MovieDto addedMovie = movieService.addMovie(movieDto);
         return new ResponseEntity<>(addedMovie, HttpStatus.CREATED);
+    }
+
+    //Build getMovieById Rest API
+    @GetMapping("{id}")
+    public ResponseEntity<MovieDto> getMovieById(@PathVariable("id") int movieId) {
+        MovieDto searchedMovie = movieService.getMovieById(movieId);
+        return ResponseEntity.ok(searchedMovie);
     }
 }
