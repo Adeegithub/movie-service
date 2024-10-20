@@ -39,4 +39,12 @@ public class MovieController {
         return ResponseEntity.ok(allMovies);
     }
 
+    //Build updateMovie Rest API.
+    @PutMapping("{id}")
+    public ResponseEntity<MovieDto> updateMovie(@PathVariable("id") int movieId,
+                                                @RequestBody MovieDto updatedMovie){
+        MovieDto movieDto = movieService.updateMovie(movieId,updatedMovie);
+        return ResponseEntity.ok(movieDto);
+    }
+
 }

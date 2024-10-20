@@ -9,4 +9,6 @@ public interface MovieService {
     MovieDto getMovieById(int id);
 
     List<MovieDto> getAllMovies();
+
+    MovieDto updateMovie(int id, MovieDto updatedMovie);
 }

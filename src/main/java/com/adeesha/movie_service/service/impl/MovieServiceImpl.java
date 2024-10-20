@@ -47,4 +47,20 @@ public class MovieServiceImpl implements MovieService {
         return allMovies.stream().map((movie) -> MovieMapper.mapToMovieDto(movie))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public MovieDto updateMovie(int id, MovieDto updatedMovie) {
+         Movie movie = movieRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Movie Not Found with the given id: " + id)
+        );
+
+         movie.setName(updatedMovie.getName());
+         movie.setGenre(updatedMovie.getGenre());
+         movie.setYear(updatedMovie.getYear());
+
+         Movie updatedMovieObject = movieRepository.save(movie);
+
+         return MovieMapper.mapToMovieDto(updatedMovieObject);
+
+    }
 }
