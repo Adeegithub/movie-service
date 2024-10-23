@@ -6,3 +6,4 @@ This Project was done to gain hands-on experience on microservices architecture.
 Movie Service: This service manages the movies (CRUD operations) and interacts with the My SQL Database to store or retrieve movie data.
 
 <center>  ![Movie Store](https://github.com/user-attachments/assets/a9afb096-7a51-4667-923c-6f3c4e366d1b) </center>
+![Movie Store](https://github.com/user-attachments/assets/b70f89d0-3242-425f-9357-8bf86597f191)
